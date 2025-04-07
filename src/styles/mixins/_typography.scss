@@ -1,0 +1,12 @@
+@mixin Typography($size: null, $weight: null, $color: null) {
+  font-size: $size;
+  font-weight: $weight;
+  color: $color;
+
+  white-space: pre-line;
+  word-break: normal;
+
+  @include Mobile() {
+    white-space: normal;
+  }
+}
