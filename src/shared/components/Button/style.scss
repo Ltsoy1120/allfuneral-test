@@ -1,0 +1,79 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  line-height: 1;
+
+  &--filled {
+    background: #3b3b3b;
+    color: #fff;
+
+    &:hover {
+      background: #4e4e4e;
+    }
+
+    &:active {
+      background: #2e2e2e;
+    }
+  }
+
+  &--outline {
+    background: transparent;
+    border: 1px solid #3b3b3b;
+    color: $color-brand-primary;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.05);
+    }
+
+    &:active {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &--flattened {
+    background: transparent;
+    border: 1px solid var(--black-black-20, #00000033);
+    padding: 4px 8px;
+    @include Typography(11px, 600, $color-brand-primary);
+
+    &:hover {
+      border: 1px solid var(--black-black-40, #00000066);
+      color: $color-brand-secondary;
+    }
+
+    &:active {
+      border: 1px solid $color-brand-variant;
+      color: $color-brand-variant;
+    }
+  }
+
+  &--icon {
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    background: transparent;
+    color: #3b3b3b;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    &:active {
+      background: rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}

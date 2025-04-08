@@ -1,5 +1,3 @@
-@import '../variables/widths';
-
 @mixin Mobile {
   @media screen and (max-width: #{$width-mobile}) {
     @content;

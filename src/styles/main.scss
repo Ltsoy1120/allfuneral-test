@@ -1,2 +1,5 @@
-@import './base/reset';
 @import './variables/colors';
+@import './variables/widths';
+@import './mixins/media';
+@import './mixins/typography';
+@import './base/reset';
