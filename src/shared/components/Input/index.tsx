@@ -1,7 +1,5 @@
-import { useState, useEffect } from 'react'
 import clsx from 'clsx'
 import InputMask from '@mona-health/react-input-mask'
-import Icon from '../Icon'
 import './style.scss'
 
 interface InputProps {
