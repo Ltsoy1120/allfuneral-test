@@ -39,7 +39,7 @@ const Icon = ({
       onClick={onClick}
       {...rest}
     >
-      <use href={`/icons.svg?v=6#${name}`} />
+      <use href={`/icons.svg?v=14#${name}`} />
     </svg>
   )
 }

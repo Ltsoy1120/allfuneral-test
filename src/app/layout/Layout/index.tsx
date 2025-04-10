@@ -1,6 +1,6 @@
 import { Outlet } from 'react-router-dom'
-import Sidebar from '@/shared/components/Sidebar'
-import Menu from '@/shared/components/Menu'
+import Sidebar from '@/app/layout/Sidebar'
+import Menu from '@/app/layout/Menu'
 import './style.scss'
 
 const Layout: React.FC = () => {

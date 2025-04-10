@@ -1,0 +1,83 @@
+.multi-select {
+  border-radius: 8px;
+  border: 1px solid var(--black-black-20, #00000033);
+  padding: 10px 12px;
+  height: 40px;
+  max-width: 432px;
+  width: 100%;
+
+  .dropdown__button {
+    width: 100%;
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    text-align: left;
+    padding-right: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include Typography(14px, 400, rgba(0, 0, 0, 0.8));
+
+    .icon {
+      position: absolute;
+      right: 0;
+    }
+  }
+
+  .dropdown__list {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: 1px solid var(--black-black-20, #00000033);
+    border-radius: 8px;
+    background: $color-white;
+    position: absolute;
+    top: 40px;
+    left: 0;
+    z-index: 1;
+
+    &-item {
+      height: 48px;
+      margin: 0;
+      padding: 0;
+      padding: 8px 12px;
+      position: relative;
+
+      @include Typography(14px, 400, rgba(0, 0, 0, 0.8));
+    }
+
+    &-label {
+      display: flex;
+    }
+
+    &-item.selected {
+      background: var(--black-black-5, #0000000d);
+    }
+
+    &-item:hover {
+      cursor: pointer;
+      @include Typography(14px, 400, rgba(0, 0, 0, 0.8));
+    }
+  }
+
+  .dropdown__check,
+  .dropdown__check-icon {
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+    background-color: $color-white;
+    border: 1px solid var(--black-black-20, #00000033);
+    border-radius: 5px;
+    margin-right: 12px;
+  }
+
+  &:hover {
+    border: 1px solid var(--black-black-50, #00000080);
+  }
+
+  &.open {
+    border: 2px solid $color-assistitive-focus;
+  }
+}

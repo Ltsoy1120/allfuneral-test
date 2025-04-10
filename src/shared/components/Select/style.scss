@@ -1,8 +1,16 @@
 .select {
-  width: 150px;
-  border-radius: $border-radius;
-  border: 1px solid $color-stroke-gray;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--black-black-20, #00000033);
   padding: 10px 12px;
+
+  &:hover {
+    border: 1px solid var(--black-black-50, #00000080);
+  }
+
+  &.open {
+    border: 2px solid $color-assistitive-focus;
+  }
 }
 
 .dropdown__button {
@@ -13,27 +21,21 @@
   text-align: left;
   padding-right: 25px;
 
-  @include Typography($font-size-3, 500, $color-medium-gray);
-}
+  @include Typography(14px, 400, rgba(0, 0, 0, 0.8));
 
-.dropdown__button::after {
-  content: url('/static/images/arrow-down.svg');
-  position: absolute;
-  right: 0;
-  width: 16px;
-}
-
-.dropdown__button.open::after {
-  content: url('/static/images/arrow-up.svg');
+  .icon {
+    position: absolute;
+    right: 0;
+  }
 }
 
 .dropdown__list {
-  width: 150px;
+  width: 100%;
   margin: 0;
   padding: 0;
   list-style-type: none;
-  border: 1px solid $color-stroke-gray;
-  border-radius: $border-radius;
+  border: 1px solid var(--black-black-20, #00000033);
+  border-radius: 8px;
   background: $color-white;
   position: absolute;
   top: 40px;
@@ -46,11 +48,15 @@
     padding: 8px 12px;
     position: relative;
 
-    @include Typography($font-size-3, 500, $color-medium-gray);
+    @include Typography(14px, 400, rgba(0, 0, 0, 0.8));
+  }
+
+  &-item.selected {
+    background: var(--black-black-5, #0000000d);
   }
 
   &-item:hover {
     cursor: pointer;
-    @include Typography($font-size-3, 500, $color-main);
+    @include Typography(14px, 400, rgba(0, 0, 0, 0.8));
   }
 }

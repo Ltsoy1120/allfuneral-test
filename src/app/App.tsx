@@ -1,12 +1,13 @@
-import CompanyPage from '@/pages/CompanyPage'
-import Layout from './layout'
 import { Navigate, Route, Routes } from 'react-router-dom'
+import { userStore } from '@/stores/userStore'
+import { observer } from 'mobx-react-lite'
 import AuthPage from '@/pages/AuthPage'
+import CompanyPage from '@/pages/CompanyPage'
+import Layout from './layout/Layout'
 
-function App() {
-  const isAuth = Boolean(localStorage.getItem('token'))
+const App = observer(() => {
+  const isAuth = userStore.isAuth
   return (
-    //  <Suspense fallback={<Loader />}>
     <Routes>
       {!isAuth ? (
         <>
@@ -21,6 +22,6 @@ function App() {
       )}
     </Routes>
   )
-}
+})
 
 export default App

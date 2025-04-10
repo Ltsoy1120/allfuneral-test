@@ -33,6 +33,17 @@ const Button: React.FC<ButtonProps> = ({
       {startIcon && <Icon name={startIcon} size={iconSize ?? 16} />}
       {children}
       {endIcon && <Icon name={endIcon} size={16} />}
+      {/* {startIcon && (
+        <span className="button__icon-left">
+          <Icon name={startIcon} size={iconSize ?? 16} />
+        </span>
+      )}
+      <span className="button__text">{children}</span>
+      {endIcon && (
+        <span className="button__icon-right">
+          <Icon name={endIcon} size={16} />
+        </span>
+      )} */}
     </button>
   )
 }

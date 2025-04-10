@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import './style.scss'
+import Button from '@/shared/components/Button'
 
 interface SidebarProps {
   isOpen?: boolean
@@ -14,10 +15,19 @@ const Sidebar = ({ isOpen = true }: SidebarProps) => {
       </div>
       <nav className="sidebar__nav">
         <ul>
-          <li className="sidebar__item sidebar__item--active">Dashboard</li>
-          <li className="sidebar__item">Orders</li>
-          <li className="sidebar__item">Products</li>
-          <li className="sidebar__item">Customers</li>
+          <li className="sidebar__item">
+            <Button startIcon="company">Organizations</Button>
+          </li>
+          <li className="sidebar__item">
+            <Button variant="outline" startIcon="contractor">
+              Contractors
+            </Button>
+          </li>
+          <li className="sidebar__item">
+            <Button variant="outline" startIcon="account">
+              Clients
+            </Button>
+          </li>
         </ul>
       </nav>
       <span>All Funeral Services © 2015-2025</span>

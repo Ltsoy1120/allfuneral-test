@@ -1,20 +1,15 @@
 import { useRef, useState, useEffect } from 'react'
 import clsx from 'clsx'
 import './style.scss'
+import Icon from '../Icon'
 
 interface SelectProps {
-  options: Option[]
-  selected: Option
+  options: string[]
+  selected: string
   label?: string
   name?: string
   className?: string
-  onChange?: (option: Option, name?: string) => void
-}
-
-export interface Option {
-  value: string
-  title: string
-  priceType?: string
+  onChange?: (value: string, name?: string) => void
 }
 
 const Select = ({ options, label, name, selected, onChange, className }: SelectProps) => {
@@ -39,29 +34,32 @@ const Select = ({ options, label, name, selected, onChange, className }: SelectP
     setIsOpen(prev => !prev)
   }
 
-  const handleOptionClick = (option: Option) => {
+  const handleOptionClick = (option: string) => {
     setIsOpen(false)
     onChange?.(option, name)
   }
 
   return (
-    <div className={clsx('select', className)}>
+    <div className={clsx('select', className, { open: isOpen })}>
       <button
         ref={rootRef}
         className={clsx('dropdown__button', { open: isOpen })}
         onClick={handleSelectClick}
       >
-        {selected.title || label}
+        {selected || label}
+        {isOpen ? <Icon name="arrow-up" /> : <Icon name="arrow-down" />}
       </button>
       {isOpen && (
         <ul className="dropdown__list">
           {options.map(option => (
             <li
-              key={option.value}
-              className="dropdown__list-item"
+              key={option}
+              className={clsx('dropdown__list-item', {
+                selected: option === selected,
+              })}
               onClick={() => handleOptionClick(option)}
             >
-              {option.title}
+              {option}
             </li>
           ))}
         </ul>

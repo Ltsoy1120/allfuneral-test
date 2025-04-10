@@ -3,7 +3,6 @@
   font-weight: $weight;
   color: $color;
 
-  white-space: pre-line;
   word-break: normal;
 
   @include Mobile() {

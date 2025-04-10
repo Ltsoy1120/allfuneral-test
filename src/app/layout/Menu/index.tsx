@@ -1,7 +1,16 @@
-import Icon from '../Icon'
+import { useNavigate } from 'react-router-dom'
+import Icon from '../../../shared/components/Icon'
 import './style.scss'
+import { userStore } from '@/stores/userStore'
 
 const Menu = () => {
+  const navigate = useNavigate()
+
+  const handleLogout = () => {
+    userStore.logout()
+    navigate('/sign-in')
+  }
+
   return (
     <aside className="menu">
       <nav className="menu__nav">
@@ -24,7 +33,7 @@ const Menu = () => {
           <li className="menu__item">
             <Icon name="settings" />
           </li>
-          <li className="menu__item">
+          <li className="menu__item" onClick={handleLogout}>
             <Icon name="sign-out" />
           </li>
         </ul>

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import clsx from 'clsx'
+import InputMask from '@mona-health/react-input-mask'
 import Icon from '../Icon'
 import './style.scss'
 
@@ -15,10 +16,10 @@ interface InputProps {
   autoFocus?: boolean
   disabled?: boolean
   autoComplete?: string
-  isInvalid?: boolean
-  endIcon?: string
+  error?: string
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-  onKeyPress?: (event: React.KeyboardEvent<HTMLInputElement>) => void
+  onBlur?: () => void
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void
 }
 
 const Input = ({
@@ -33,54 +34,43 @@ const Input = ({
   autoFocus,
   disabled,
   autoComplete,
-  isInvalid,
-  endIcon,
+  error,
   onChange,
-  onKeyPress,
+  onBlur,
+  onKeyDown,
 }: InputProps) => {
-  const [inputType, setInputType] = useState<string>(type)
-
-  useEffect(() => {
-    setInputType(type)
-  }, [type])
-
-  const togglePasswordVisibility = () => {
-    setInputType(prev => (prev === 'password' ? 'text' : 'password'))
-  }
-
   return (
-    <div className={clsx('input-wrapper', { 'input-wrapper-error': isInvalid })}>
-      <input
-        type={inputType}
-        name={name}
-        value={value}
-        placeholder={placeholder}
-        required={required}
-        autoFocus={autoFocus}
-        disabled={disabled}
-        maxLength={maxLength}
-        max={max}
-        min={min}
-        autoComplete={autoComplete}
-        onChange={onChange}
-        onKeyPress={onKeyPress}
-        className="input"
-      />
-
-      {type === 'password' && (
-        <Icon
-          name={inputType === 'password' ? 'close-eye' : 'open-eye'}
-          size={16}
-          onClick={togglePasswordVisibility}
+    <div className={clsx('input-wrapper', { 'input-wrapper-error': !!error })}>
+      {type === 'tel' ? (
+        <InputMask
+          mask="+1 999 999 9999"
+          id="phone"
+          name={name}
+          type="tel"
+          autoComplete="on"
+          required={required}
+          placeholder={placeholder ?? '+7 (___) ___ __ __'}
+          value={value}
+          onChange={onChange}
         />
-      )}
-
-      {endIcon && <Icon name={endIcon} size={20} />}
-
-      {isInvalid && (
-        <div className="input-error__wrapper">
-          {/* <p className="input-error__wrapper-text">{t("accountPage.error")}</p> */}
-        </div>
+      ) : (
+        <input
+          type={type}
+          name={name}
+          value={value}
+          placeholder={placeholder}
+          required={required}
+          autoFocus={autoFocus}
+          disabled={disabled}
+          maxLength={maxLength}
+          max={max}
+          min={min}
+          autoComplete={autoComplete}
+          onChange={onChange}
+          onBlur={onBlur}
+          onKeyDown={onKeyDown}
+          className="input"
+        />
       )}
     </div>
   )

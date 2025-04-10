@@ -20,6 +20,10 @@
     &-actions {
       display: flex;
       gap: 4px;
+
+      > *:last-child .icon {
+        color: $color-red;
+      }
     }
   }
 

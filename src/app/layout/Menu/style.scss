@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  color: $color-white;
 
   &__nav ul,
   &__bottom ul {
@@ -27,6 +28,10 @@
     align-items: center;
     justify-content: center;
     background: $color-brand-primary;
+
+    &:hover {
+      background: var(--white-white-10, #ffffff1a);
+    }
 
     &--active {
       background: var(--white-white-20, #ffffff33);
