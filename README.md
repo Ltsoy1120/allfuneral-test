@@ -1,54 +1,54 @@
-# React + TypeScript + Vite
+# Funeral Company Manager
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Тестовое задание для [AllFuneral](https://test-task-api.allfuneral.com/)
 
-Currently, two official plugins are available:
+## 📋 Описание
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Приложение для отображения и редактирования информации об организации:
 
-## Expanding the ESLint configuration
+- Просмотр информации о компании
+- Редактирование данных организации и контактных данных
+- Загрузка и удаление фотографий
+- Простая авторизация по имени
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🛠️ Стек технологий
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+- **React** + **TypeScript**
+- **MobX** — для управления состоянием
+- **Vite** — сборка проекта
+- **React Router** — навигация
+- **SCSS (SASS)** — стили
+- **Axios** — для HTTP-запросов
+
+## 🚀 Как запустить
+
+```bash
+git clone https://github.com/Ltsoy1120/allfuneral-test.git
+cd allfuneral-test
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🔑 Авторизация
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Для входа достаточно ввести имя пользователя ( USERNAME )
+Токен сохраняется в localStorage.
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+## 📁 Структура проекта
+
+├── public/ # Публичные файлы, доступны напрямую по URL
+│ └── icons.svg # SVG-спрайт с иконками
+├── src/
+│ ├── api/ # Настройка axios-инстанса
+│ ├── app/ # Layout, роутинг, шрифты
+│ ├── assets/ # Вспомогательные изображения
+│ ├── entities/ # Типы, DTO, API-запросы (company, contact)
+│ ├── features/ # Формы, карточки и бизнес-логика
+│ ├── pages/ # Страницы (CompanyPage, AuthPage)
+│ ├── shared/ # Общие компоненты (Button, Input, Modal и пр.)
+│ ├── stores/ # MobX store'ы
+│ └── styles/ # Общие стили, переменные и миксины
+
+## 📎 Ссылка на репозиторий
+
+https://github.com/Ltsoy1120/allfuneral-test
