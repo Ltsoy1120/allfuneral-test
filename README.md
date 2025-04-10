@@ -54,3 +54,7 @@ npm run dev
 ## 📎 Ссылка на репозиторий
 
 https://github.com/Ltsoy1120/allfuneral-test
+
+## 📎 Ссылка на демонстрацию
+
+https://allfuneral-test-ywyl.vercel.app
